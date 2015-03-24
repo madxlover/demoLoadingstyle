@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A demo of loading style</title>
+    <style type="text/css">
+    .bg {
+        background:#fbfbfc;
+    	width : 500px;
+    	height: 100px;
+    	position:relative;
+    }
+    .bg::before {
+    	content:"Loading";
+    	position:absolute;
+    	top:50px;
+    	left:250px;
+    	margin-left:-80px;
+    	margin-top:-25px;
+    	font-size:50px;
+    	color:#42abd6;
+    }
+
+   .process {
+    	width : 0%;
+    	height: 100px;
+    	position:absolute;
+    	background:#42abd6;
+    	overflow: hidden;
+    }
+   .process::before {
+    	content:"Loading";
+    	position:absolute;
+    	top:50px;
+    	left:250px;
+    	margin-left:-80px;
+    	margin-top:-25px;
+    	font-size:50px;
+    	color:#fbfbfc;
+    }
+
+    .control{
+    	margin: 10px;
+    	padding: 8px;
+    }
+
+  
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $("#show").click(function(){
+    	$(".process").animate({
+         width: "100%"
+        }, 5000, "linear");
+    });
+    $("#reset").click(function(){
+        $(".process").css("width","0%");
+    })
+    });      
+    </script>
+</head>
+<body>
+	<div class="bg">
+		<div class="process"></div>
+	</div>
+    <div class="control">
+        <button type="button" id="show">Show</button>
+        <button type="button" id="reset">Reset</button>
+    </div>
+</body>
+
+</html>
